@@ -27,11 +27,11 @@ namespace Dewey.Demo
                     return null;
                 }
                 Random rand = new Random();
-                response.Data = new List<List<object>>();
+                response.Data = new List<Dictionary<string, object>>();
                 IColumn DataColumn = new Name();
                 for (int j = 0; j < request.rowCount; ++j)
                 {
-                    List<object> row = new List<object>();
+                    Dictionary<string, object> row = new Dictionary<string, object>();
                     for (int i = 0; i < request.Columns.Length; ++i)
                     {
                         if (request.Columns[i].max == null) { request.Columns[i].max = ColumnDescription.DEFAULT_MAX_NUMBER; }
@@ -71,7 +71,7 @@ namespace Dewey.Demo
                                 DataColumn = new Dewey.Demo.Date(rand);
                                 break;
                         }
-                        row.Add(DataColumn.ColumnValue(request.Columns[i]));
+                        row.Add(request.Columns[i].name, DataColumn.ColumnValue(request.Columns[i]));
                     }
                     response.Data.Add(row);
                 }

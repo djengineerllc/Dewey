@@ -7,6 +7,6 @@ namespace Dewey.Demo
 {
     public class DemoResponse
     {
-        public List<List<object>> Data { get; set; }
+        public List<Dictionary<string, object>> Data { get; set; }
     }
 }

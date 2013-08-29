@@ -8,7 +8,7 @@ namespace Dewey.Demo
     public class Bool : IColumn
     {
         Random rand;
-        public Bool(Random r) { r = rand; }
+        public Bool(Random r) { rand = r; }
         public object ColumnValue(ColumnDescription colDesc)
         {
             string format;

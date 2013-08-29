@@ -12,8 +12,8 @@ namespace Dewey.Demo
         public object ColumnValue(ColumnDescription colDesc)
         {
             object value = null;
-            string Format = string.Format("{0:{0}}", colDesc.format);
-            value = string.Format(colDesc.format, rand.NextDouble() * (colDesc.max - colDesc.min) + colDesc.min);
+            string Format = "{0:" + colDesc.format + "}";
+            value = string.Format(Format, rand.NextDouble() * (colDesc.max - colDesc.min) + colDesc.min);
             return value;
         }
     }

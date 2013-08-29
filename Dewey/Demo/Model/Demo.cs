@@ -39,8 +39,8 @@ namespace Dewey.Demo
         public const double DEFAULT_MIN_NUMBER = -100d;
         [ApiMember(Name = "name", Description = "Column name", IsRequired = true, AllowMultiple = true)]
         public string name { get; set; }
-        [ApiMember(Name = "type", Description = "Column data type", IsRequired = false, AllowMultiple = false)]
-        public ColumnTypes type { get; set; }
+        [ApiMember(Name = "type", Description = "Column data type", DataType="enum", IsRequired = false, AllowMultiple = false)]
+        public string type { get; set; }
         [ApiMember(Name = "format", Description = "Format for column value", IsRequired = false, AllowMultiple = false)]
         public string format { get; set; }
         [ApiMember(Name = "max", Description = "Maximum value for random number", DataType = "double", IsRequired = false, AllowMultiple = false)]
@@ -49,7 +49,7 @@ namespace Dewey.Demo
         public double? min { get; set; }
 
         public ColumnDescription() { }
-        public ColumnDescription(string Name, ColumnTypes Type, string Format, double? Max, double? Min)
+        public ColumnDescription(string Name, string Type, string Format, double? Max, double? Min)
         {
             name = Name;
             type = Type;

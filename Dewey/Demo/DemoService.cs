@@ -36,36 +36,38 @@ namespace Dewey.Demo
                     {
                         if (request.Columns[i].max == null) { request.Columns[i].max = ColumnDescription.DEFAULT_MAX_NUMBER; }
                         if (request.Columns[i].min == null) { request.Columns[i].min = ColumnDescription.DEFAULT_MIN_NUMBER; }
-                        switch (request.Columns[i].type.ToString())
+                        ColumnTypes.types colType = ColumnTypes.types.nameCol;
+                        Enum.TryParse<ColumnTypes.types>(request.Columns[i].type, out colType);
+                        switch (colType)
                         {
-                            case ColumnTypes.NUMBER_TYPE_NAME:
+                            case ColumnTypes.types.numberCol:
                                 DataColumn = new Number(rand);
                                 break;
-                            case ColumnTypes.STRING_TYPE_NAME:
+                            case ColumnTypes.types.stringCol:
                                 DataColumn = new Dewey.Demo.String();
                                 break;
-                            case ColumnTypes.NAME_TYPE_NAME:
+                            case ColumnTypes.types.nameCol:
                                 DataColumn = new Name();
                                 break;
-                            case ColumnTypes.ADDRESS_TYPE_NAME:
+                            case ColumnTypes.types.addressCol:
                                 DataColumn = new Address();
                                 break;
-                            case ColumnTypes.COMPANY_TYPE_NAME:
+                            case ColumnTypes.types.companyCol:
                                 DataColumn = new Company();
                                 break;
-                            case ColumnTypes.INTERNET_TYPE_NAME:
+                            case ColumnTypes.types.internetCol:
                                 DataColumn = new Internet();
                                 break;
-                            case ColumnTypes.PHONENUMBER_TYPE_NAME:
+                            case ColumnTypes.types.phonenumberCol:
                                 DataColumn = new PhoneNumber();
                                 break;
-                            case ColumnTypes.CHAR_TYPE_NAME:
+                            case ColumnTypes.types.charCol:
                                 DataColumn = new Dewey.Demo.Char(rand);
                                 break;
-                            case ColumnTypes.BOOL_TYPE_NAME:
+                            case ColumnTypes.types.boolCol:
                                 DataColumn = new Dewey.Demo.Bool(rand);
                                 break;
-                            case ColumnTypes.DATE_TYPE_NAME:
+                            case ColumnTypes.types.dateCol:
                                 DataColumn = new Dewey.Demo.Date(rand);
                                 break;
                         }

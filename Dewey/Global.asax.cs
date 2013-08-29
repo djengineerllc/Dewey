@@ -17,7 +17,6 @@ namespace Dewey
         {
             //Initialize your application
             (new HelloWorldAppHost()).Init();
-            //(new DemoAppHost()).Init();
         }
 
         protected void Session_Start(object sender, EventArgs e)

@@ -11,7 +11,7 @@ namespace Dewey.Demo
     [Route("/demo")]
     [Route("/demo/{rowCount}")]
     [Route("/demo/{rowCount}/{Columns}")]
-    [Route("/demo/{rowCount}/{Columns}/{culture}")]
+    [Route("/demo/{rowCount}/{Columns}/{Culture}")]
     public class Demo
     {
         public static CultureInfo DEFAULT_CULTURE = CultureInfo.DefaultThreadCurrentCulture;
@@ -32,13 +32,15 @@ namespace Dewey.Demo
         public const string DEFAULT_FORMAT_STRING = "w5";
         public const string DEFAULT_FORMAT_NAME = "standard";
         public const string DEFAULT_FORMAT_ADDRESS = "streetaddress";
+        public const string DEFAULT_FORMAT_COMPANY = "name";
+        public const string DEFAULT_FORMAT_INTERNET = "email";
+        public const string DEFAULT_FORMAT_DATE = "G";
         public const double DEFAULT_MAX_NUMBER = 100d;
         public const double DEFAULT_MIN_NUMBER = -100d;
         [ApiMember(Name = "name", Description = "Column name", IsRequired = true, AllowMultiple = true)]
         public string name { get; set; }
         [ApiMember(Name = "type", Description = "Column data type", IsRequired = false, AllowMultiple = false)]
-        [ApiAllowableValues("type", new string[] { "number", "string", "char", "bool", "date" })]
-        public string type { get; set; }
+        public ColumnTypes type { get; set; }
         [ApiMember(Name = "format", Description = "Format for column value", IsRequired = false, AllowMultiple = false)]
         public string format { get; set; }
         [ApiMember(Name = "max", Description = "Maximum value for random number", DataType = "double", IsRequired = false, AllowMultiple = false)]
@@ -47,7 +49,7 @@ namespace Dewey.Demo
         public double? min { get; set; }
 
         public ColumnDescription() { }
-        public ColumnDescription(string Name, string Type, string Format, double? Max, double? Min)
+        public ColumnDescription(string Name, ColumnTypes Type, string Format, double? Max, double? Min)
         {
             name = Name;
             type = Type;

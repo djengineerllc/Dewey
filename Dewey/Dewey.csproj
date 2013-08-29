@@ -90,6 +90,18 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Demo\Columns\Address.cs" />
+    <Compile Include="Demo\Columns\Bool.cs" />
+    <Compile Include="Demo\Columns\Char.cs" />
+    <Compile Include="Demo\Columns\ColumnTypes.cs" />
+    <Compile Include="Demo\Columns\Company.cs" />
+    <Compile Include="Demo\Columns\Date.cs" />
+    <Compile Include="Demo\Columns\IColumn.cs" />
+    <Compile Include="Demo\Columns\Internet.cs" />
+    <Compile Include="Demo\Columns\Name.cs" />
+    <Compile Include="Demo\Columns\Number.cs" />
+    <Compile Include="Demo\Columns\PhoneNumber.cs" />
+    <Compile Include="Demo\Columns\String.cs" />
     <Compile Include="Demo\DemoAppHost.cs" />
     <Compile Include="Demo\DemoService.cs" />
     <Compile Include="Demo\Extensions\BooleanExtensions.cs" />

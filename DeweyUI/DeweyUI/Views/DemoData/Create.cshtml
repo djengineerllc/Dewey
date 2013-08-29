@@ -1,0 +1,60 @@
+﻿@model DeweyUI.Models.DemoData
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>DemoData</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateTimeData)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateTimeData)
+            @Html.ValidationMessageFor(model => model.DateTimeData)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StringData)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StringData)
+            @Html.ValidationMessageFor(model => model.StringData)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StringData2)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StringData2)
+            @Html.ValidationMessageFor(model => model.StringData2)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NumData)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NumData)
+            @Html.ValidationMessageFor(model => model.NumData)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<DeweyUI.Models.DemoData>
+
+@{
+    ViewBag.Title = "Demo Data";
+}
+<style>
+    .createSection {
+        background-color: orange;
+    }
+</style>
+<div runat="server" id="createSection">
+
+<h2>Create Demo Data XML</h2>
+
+<p>
+    @Html.ActionLink("Enter Demo Data", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTimeData)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StringData)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StringData2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumData)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTimeData)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StringData)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StringData2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumData)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IntegerData }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IntegerData }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IntegerData })
+        </td>
+    </tr>
+}
+
+</table>
+    </div>

@@ -1,0 +1,43 @@
+﻿@model DeweyUI.Models.DemoData
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>DemoData</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateTimeData)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateTimeData)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StringData)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StringData)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StringData2)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StringData2)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NumData)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NumData)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.IntegerData }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

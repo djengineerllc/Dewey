@@ -8,18 +8,18 @@ namespace Dewey.Demo
     public class Date : IColumn
     {
         private DateTime start = new DateTime(1995, 1, 1);
+        private DateTime end = DateTime.Now;
         private Random rand;
         private int range;
         public Date(Random r)
         {
             rand = r;
-            range = (DateTime.Today - start).Days;
+            range = (end - start).Days;
         }
         public DateTime RandomDay()
         {        
             return start.AddDays(rand.Next(range));
         }
-
         public object ColumnValue(ColumnDescription colDesc)
         {
             string format;

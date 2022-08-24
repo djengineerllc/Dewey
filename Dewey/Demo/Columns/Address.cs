@@ -23,7 +23,7 @@ namespace Dewey.Demo
                     value = Faker.Address.CityPrefix();
                     break;
                 case "citysufix":
-                    value = Faker.Address.CitySufix();
+                    value = Faker.Address.CitySuffix();
                     break;
                 case "country":
                     value = Faker.Address.Country();

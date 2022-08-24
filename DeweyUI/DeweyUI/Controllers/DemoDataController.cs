@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
+
 using DeweyUI.Models;
+
+using EntityState = System.Data.Entity.EntityState;
 
 namespace DeweyUI.Controllers
 {

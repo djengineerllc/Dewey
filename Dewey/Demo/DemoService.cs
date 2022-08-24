@@ -1,9 +1,7 @@
-﻿using ServiceStack.Logging;
-using ServiceStack.ServiceHost;
+﻿using ServiceStack;
+using ServiceStack.Logging;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Dewey.Demo
 {
@@ -36,15 +34,14 @@ namespace Dewey.Demo
                     {
                         if (request.Columns[i].max == null) { request.Columns[i].max = ColumnDescription.DEFAULT_MAX_NUMBER; }
                         if (request.Columns[i].min == null) { request.Columns[i].min = ColumnDescription.DEFAULT_MIN_NUMBER; }
-                        ColumnTypes.types colType = ColumnTypes.types.nameCol;
-                        Enum.TryParse<ColumnTypes.types>(request.Columns[i].type, out colType);
+                        Enum.TryParse(request.Columns[i].type, out ColumnTypes.types colType);
                         switch (colType)
                         {
                             case ColumnTypes.types.numberCol:
                                 DataColumn = new Number(rand);
                                 break;
                             case ColumnTypes.types.stringCol:
-                                DataColumn = new Dewey.Demo.String();
+                                DataColumn = new String();
                                 break;
                             case ColumnTypes.types.nameCol:
                                 DataColumn = new Name();
@@ -62,13 +59,13 @@ namespace Dewey.Demo
                                 DataColumn = new PhoneNumber();
                                 break;
                             case ColumnTypes.types.charCol:
-                                DataColumn = new Dewey.Demo.Char(rand);
+                                DataColumn = new Char(rand);
                                 break;
                             case ColumnTypes.types.boolCol:
-                                DataColumn = new Dewey.Demo.Bool(rand);
+                                DataColumn = new Bool(rand);
                                 break;
                             case ColumnTypes.types.dateCol:
-                                DataColumn = new Dewey.Demo.Date(rand);
+                                DataColumn = new Date(rand);
                                 break;
                         }
                         row.Add(request.Columns[i].name, DataColumn.ColumnValue(request.Columns[i]));

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Dewey.Demo
 {
@@ -24,7 +21,7 @@ namespace Dewey.Demo
         {
             string format;
             object value = null;
-            if (colDesc.format == null || colDesc.format == string.Empty) { format = ColumnDescription.DEFAULT_FORMAT_DATE; }
+            if (colDesc.format == null || colDesc.format == string.Empty) { format = "{0:"+ColumnDescription.DEFAULT_FORMAT_DATE+"}"; }
             else { format = "{0:" + colDesc.format + "}"; }
             value = string.Format(format, RandomDay());
             return value;
